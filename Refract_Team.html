@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet the Team | Refract</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:    #0A0A0A;
+  --off-black:#111111;
+  --surface:  #161616;
+  --surface-2:#1E1E1E;
+  --border:   #2A2A2A;
+  --muted:    #555555;
+  --subtle:   #888888;
+  --body:     #C8C8C8;
+  --white:    #F0EDE8;
+  --amber:    #E8D5B0;
+  --sage:     #7B9E8F;
+  --terra:    #C17B6B;
+  --slate:    #6B7FA3;
+  --spec: linear-gradient(90deg, #E8D5B0, #7B9E8F, #6B7FA3, #C17B6B);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--body);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+
+/* ── TICKER ── */
+.ticker-wrap{background:var(--surface);border-bottom:1px solid var(--border);overflow:hidden;padding:8px 0;}
+.ticker-inner{display:flex;gap:0;white-space:nowrap;animation:ticker 40s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+.ticker-item{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--subtle);padding:0 32px;display:flex;align-items:center;gap:12px;}
+.ticker-item::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--amber);flex-shrink:0;}
+.ticker-item.breaking::before{background:var(--terra);}
+.ticker-item.breaking{color:var(--terra);}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── MASTHEAD ── */
+.masthead{border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(10,10,10,.96);backdrop-filter:blur(12px);}
+.masthead-inner{max-width:1400px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;height:72px;}
+.nav-left{display:flex;gap:24px;align-items:center;}
+.nav-link{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--subtle);transition:color .2s;}
+.nav-link:hover,.nav-link.active{color:var(--white);}
+.nav-link.active{border-bottom:1px solid var(--amber);padding-bottom:2px;}
+.wordmark{text-align:center;}
+.wordmark-text{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--white);letter-spacing:-.04em;display:block;}
+.wordmark-rule{height:1px;background:var(--spec);margin:3px 0 2px;opacity:.7;}
+.wordmark-tag{font-family:'Playfair Display',serif;font-style:italic;font-size:9px;color:var(--muted);letter-spacing:1px;display:block;}
+.nav-right{display:flex;gap:20px;align-items:center;justify-content:flex-end;}
+.search-btn{background:none;border:1px solid var(--border);color:var(--subtle);padding:6px 14px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;cursor:pointer;transition:all .2s;}
+.search-btn:hover{border-color:var(--amber);color:var(--amber);}
+.subscribe-btn{background:var(--white);color:var(--black);padding:7px 18px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;cursor:pointer;border:none;font-weight:500;transition:opacity .2s;}
+.subscribe-btn:hover{opacity:.85;}
+
+/* ── SECTION HEADER (shared) ── */
+.section-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-top:48px;}
+.section-header-line{flex:1;height:1px;background:var(--border);}
+.section-header-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+.section-header-accent{width:24px;height:1px;}
+.section-header-accent.amber{background:var(--amber);}
+.section-header-accent.sage{background:var(--sage);}
+
+/* ── TEAM HERO ── */
+.team-hero{padding:100px 40px 60px;max-width:1400px;margin:0 auto;border-bottom:1px solid var(--border);}
+.team-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--amber);margin-bottom:24px;}
+.team-title{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,72px);font-weight:900;color:var(--white);line-height:1;letter-spacing:-.02em;margin-bottom:24px;}
+.team-tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(16px,2vw,20px);color:var(--subtle);max-width:640px;line-height:1.5;}
+
+/* ── TEAM PHOTO ── */
+.team-photo-section{max-width:1400px;margin:0 auto;padding:64px 40px;}
+.team-photo-frame{border:1px solid var(--border);background:var(--surface);padding:8px;}
+.team-photo-frame img{width:100%;display:block;}
+.team-photo-caption{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.08em;margin-top:12px;}
+
+/* ── TEAM GRID ── */
+.team-section{max-width:1400px;margin:0 auto;padding:0 40px 80px;}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.member-card{background:var(--surface);padding:32px 28px;transition:background .2s;}
+.member-card:hover{background:var(--surface-2);}
+.member-role{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.member-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white);}
+
+/* ── QUOTES ── */
+.quotes-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 40px;}
+.quotes-inner{max-width:1400px;margin:0 auto;}
+.quotes-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+.quote-text{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,2vw,21px);color:var(--white);line-height:1.6;margin-bottom:20px;}
+.quote-text::before,.quote-text::after{content:'"';color:var(--amber);}
+.quote-attr-name{font-family:'DM Mono',monospace;font-size:11px;color:var(--amber);letter-spacing:.1em;}
+.quote-attr-role{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.08em;margin-top:2px;}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:48px 40px;}
+.footer-inner{max-width:1400px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid var(--border);margin-bottom:32px;}
+.footer-brand-area .footer-wordmark{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--white);letter-spacing:-.03em;display:block;margin-bottom:4px;}
+.footer-brand-area .footer-rule{height:1px;background:var(--spec);margin-bottom:6px;opacity:.6;width:120px;}
+.footer-brand-area .footer-tag{font-family:'Playfair Display',serif;font-style:italic;font-size:10px;color:var(--muted);}
+.footer-brand-area .footer-desc{font-size:13px;color:var(--subtle);margin-top:16px;line-height:1.6;max-width:260px;font-weight:300;}
+.footer-col-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;}
+.footer-links{display:flex;flex-direction:column;gap:10px;}
+.footer-link{font-size:13px;color:var(--subtle);transition:color .2s;cursor:pointer;}
+.footer-link:hover{color:var(--white);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.1em;}
+.footer-social{display:flex;gap:16px;}
+.social-link{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.15em;transition:color .2s;cursor:pointer;}
+.social-link:hover{color:var(--amber);}
+
+/* ── PAGE LOAD ANIMATION ── */
+.fade-in{opacity:0;transform:translateY(20px);animation:fadeIn .7s ease forwards;}
+@keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
+.delay-1{animation-delay:.1s;}
+.delay-2{animation-delay:.2s;}
+.delay-3{animation-delay:.3s;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+  .quotes-grid{grid-template-columns:1fr;gap:40px;}
+  .masthead-inner{grid-template-columns:auto 1fr auto;}
+  .nav-left{display:none;}
+}
+@media(max-width:600px){
+  .team-grid{grid-template-columns:1fr;}
+  .team-hero,.team-photo-section,.team-section,.quotes-section{padding-left:20px;padding-right:20px;}
+  footer{padding:40px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- BREAKING TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item breaking">BREAKING — Peru's Congress votes on civil union bill for the third time this session</span>
+    <span class="ticker-item">US Supreme Court hears arguments on transgender healthcare protections</span>
+    <span class="ticker-item">New study links androgen receptor variants to gender identity markers — Refract analysis incoming</span>
+    <span class="ticker-item">Lima mayor announces public health reforms — LGBTQ+ clinics excluded from funding</span>
+    <span class="ticker-item breaking">BREAKING — Peru's Congress votes on civil union bill for the third time this session</span>
+    <span class="ticker-item">US Supreme Court hears arguments on transgender healthcare protections</span>
+    <span class="ticker-item">New study links androgen receptor variants to gender identity markers — Refract analysis incoming</span>
+    <span class="ticker-item">Lima mayor announces public health reforms — LGBTQ+ clinics excluded from funding</span>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <nav class="nav-left">
+      <a class="nav-link" href="Refract_Homepage.html">Home</a>
+      <a class="nav-link" href="Refract_Homepage.html#latest">LGBTQ+</a>
+      <a class="nav-link" href="Refract_Homepage.html#latest">Peru</a>
+      <a class="nav-link" href="Refract_Homepage.html#latest">US Politics</a>
+      <a class="nav-link" href="Refract_Homepage.html#indepth">Science</a>
+      <a class="nav-link" href="Refract_Homepage.html#factcheck">Fact-Check</a>
+      <a class="nav-link active" href="Refract_Team.html">Team</a>
+    </nav>
+    <div class="wordmark">
+      <a href="Refract_Homepage.html">
+        <span class="wordmark-text">Refract</span>
+        <div class="wordmark-rule"></div>
+        <span class="wordmark-tag">Split the light.</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <button class="search-btn">Search</button>
+      <button class="subscribe-btn">Subscribe</button>
+    </div>
+  </div>
+</header>
+
+<!-- TEAM HERO -->
+<div class="team-hero fade-in">
+  <div class="team-label">Who we are</div>
+  <h1 class="team-title">Meet the Team</h1>
+  <p class="team-tagline">A small group of students in Lima trying to do journalism properly — fact-checked, sourced, and unafraid of the stories other outlets skip.</p>
+</div>
+
+<!-- TEAM PHOTO -->
+<div class="team-photo-section fade-in delay-1">
+  <div class="team-photo-frame">
+    <img src="assets/team/team-photo.webp" alt="The Refract team standing together outdoors on campus">
+  </div>
+  <div class="team-photo-caption">The Refract team · Santa María Marianistas, Lima</div>
+</div>
+
+<!-- TEAM GRID -->
+<div class="team-section fade-in delay-2">
+  <div class="section-header" style="padding-top:0;">
+    <div class="section-header-accent amber"></div>
+    <span class="section-header-title">The people behind Refract</span>
+    <div class="section-header-line"></div>
+  </div>
+  <div class="team-grid">
+    <div class="member-card">
+      <div class="member-role">Founder &amp; Editor</div>
+      <div class="member-name">Cristóbal de Asín</div>
+    </div>
+    <div class="member-card">
+      <div class="member-role">Writer</div>
+      <div class="member-name">Jose Ignacio Castro</div>
+    </div>
+    <div class="member-card">
+      <div class="member-role">Writer</div>
+      <div class="member-name">Mateo Topelberg</div>
+    </div>
+    <div class="member-card">
+      <div class="member-role">Writer</div>
+      <div class="member-name">Ignacio Pretell</div>
+    </div>
+    <div class="member-card">
+      <div class="member-role">Writer</div>
+      <div class="member-name">Alejandro Pereda</div>
+    </div>
+    <div class="member-card">
+      <div class="member-role">Writer</div>
+      <div class="member-name">Ignacio Arias</div>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTES -->
+<div class="quotes-section fade-in delay-3">
+  <div class="quotes-inner">
+    <div class="section-header" style="padding-top:0;">
+      <div class="section-header-accent sage"></div>
+      <span class="section-header-title">What people say</span>
+      <div class="section-header-line"></div>
+    </div>
+    <div class="quotes-grid">
+      <div class="quote-card">
+        <p class="quote-text">Refract has made me improved a lot my writing skills. Cristobal really helped me with the issues i had along the way and i couldnt have asked for a better mentor than him</p>
+        <div class="quote-attr-name">Mateo Topelberg</div>
+        <div class="quote-attr-role">Refract Writer</div>
+      </div>
+      <div class="quote-card">
+        <p class="quote-text">Well, I think its an intresting proposal, specially in the purpose it has. In the sense that students gain more knowledge on the importance of citations</p>
+        <div class="quote-attr-name">Marie Elena Guevara</div>
+        <div class="quote-attr-role">Investigation and Biology Teacher at Santa Maria Marianistas</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-area">
+        <span class="footer-wordmark">Refract</span>
+        <div class="footer-rule"></div>
+        <span class="footer-tag">Split the light.</span>
+        <p class="footer-desc">Fact-checked journalism on US politics, Peruvian affairs, and LGBTQ+ rights — built for young people who are tired of being misled.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Beats</div>
+        <div class="footer-links">
+          <span class="footer-link">LGBTQ+ Rights</span>
+          <span class="footer-link">Peru & Latin America</span>
+          <span class="footer-link">US Politics</span>
+          <span class="footer-link">Science</span>
+          <span class="footer-link">Fact-Check Archive</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">About</div>
+        <div class="footer-links">
+          <span class="footer-link">Our Mission</span>
+          <a class="footer-link" href="Refract_Team.html">Meet the Team</a>
+          <span class="footer-link">Editorial Standards</span>
+          <span class="footer-link">Corrections Policy</span>
+          <span class="footer-link">Contact</span>
+          <span class="footer-link">Media Kit</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Follow</div>
+        <div class="footer-links">
+          <span class="footer-link">Instagram</span>
+          <span class="footer-link">TikTok</span>
+          <span class="footer-link">Newsletter</span>
+          <span class="footer-link">RSS Feed</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Refract · Lima, Peru · All rights reserved</span>
+      <div class="footer-social">
+        <span class="social-link">@refract.media</span>
+        <span class="social-link">Privacy</span>
+        <span class="social-link">Terms</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
